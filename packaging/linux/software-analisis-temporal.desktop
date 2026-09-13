@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Software de Análisis Temporal
+Name[en]=Temporal Analysis Software
+Comment=Análisis de la distribución horaria de eventos (Reloj de Datos)
+Comment[en]=Hourly distribution analysis of events (Data Clock)
+Exec=/opt/software-analisis-temporal/SoftwareAnalisisTemporal
+Icon=software-analisis-temporal
+Terminal=false
+Categories=Office;Utility;
+StartupWMClass=SoftwareAnalisisTemporal
