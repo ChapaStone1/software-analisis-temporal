@@ -1,6 +1,6 @@
 #!/bin/bash
 # =========================================================
-#  Build de "Software de Analisis Temporal y de Datos" para
+#  Build de "Software de Analisis Temporal" para
 #  Linux / Debian (ejecutar en Linux)
 # =========================================================
 set -e
@@ -15,9 +15,35 @@ pip install -r requirements.txt
 pip install pyinstaller
 
 echo "Generando ejecutable..."
+# No se usa --collect-all PySide6: esta app solo usa QtWidgets/QtGui/
+# QtCore (nunca QML/Qt Quick), asi que ese flag empaquetaba modulos
+# enteros sin usar (Qt3D, QML, WebEngine, Multimedia, etc.), haciendo
+# el ejecutable mucho mas pesado de lo necesario.
 pyinstaller --noconfirm --windowed --name "SoftwareAnalisisTemporal" \
     --add-data "reloj_datos/assets:reloj_datos/assets" \
-    --collect-all PySide6 \
+    --exclude-module PySide6.Qt3DAnimation \
+    --exclude-module PySide6.Qt3DCore \
+    --exclude-module PySide6.Qt3DExtras \
+    --exclude-module PySide6.Qt3DInput \
+    --exclude-module PySide6.Qt3DLogic \
+    --exclude-module PySide6.Qt3DRender \
+    --exclude-module PySide6.QtQml \
+    --exclude-module PySide6.QtQuick \
+    --exclude-module PySide6.QtQuick3D \
+    --exclude-module PySide6.QtQuickWidgets \
+    --exclude-module PySide6.QtQuickControls2 \
+    --exclude-module PySide6.QtWebEngineCore \
+    --exclude-module PySide6.QtWebEngineWidgets \
+    --exclude-module PySide6.QtWebEngineQuick \
+    --exclude-module PySide6.QtMultimedia \
+    --exclude-module PySide6.QtMultimediaWidgets \
+    --exclude-module PySide6.QtBluetooth \
+    --exclude-module PySide6.QtNfc \
+    --exclude-module PySide6.QtPositioning \
+    --exclude-module PySide6.QtSensors \
+    --exclude-module PySide6.QtSerialPort \
+    --exclude-module PySide6.QtPdf \
+    --exclude-module PySide6.QtPdfWidgets \
     main.py
 
 echo ""
