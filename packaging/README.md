@@ -27,6 +27,17 @@ Inicio, desinstalador registrado en "Agregar o quitar programas".
 > Si Inno Setup quedó instalado en una ruta distinta a las habituales, editá la línea `set "ISCC=..."`
 > de `build_installer.bat` con la ruta correcta a `ISCC.exe`.
 
+### Problema conocido: "El sistema no puede encontrar la ruta especificada"
+
+Si `ISCC.exe` falla a mitad de la compresión con ese mensaje (suele pasar comprimiendo algún
+archivo dentro de `_internal\PySide6\qml\...`), es el límite de **260 caracteres por ruta** de
+Windows (`MAX_PATH`): la carpeta del proyecto está en una ruta muy larga (por ejemplo dentro de
+`Escritorio\...`) y, sumada a las carpetas internas de PySide6, se pasa del límite.
+
+Solución más simple: **mové la carpeta del proyecto a una ruta corta**, por ejemplo `C:\rdt\`, y
+volvé a compilar desde ahí. El script de build ya excluye los módulos de PySide6 que esta app no
+usa (QML, Qt3D, WebEngine, etc.), así que con una ruta corta no debería volver a pasar.
+
 ## Linux (Debian/Ubuntu y derivados) — `.deb`
 
 **Requisitos previos** (una sola vez):

@@ -3,6 +3,8 @@ gui/chart_canvas.py
 
 Envoltorio simple para mostrar figuras de matplotlib dentro de widgets Qt.
 """
+from __future__ import annotations
+
 from matplotlib.backends.backend_qtagg import FigureCanvasQTAgg
 from matplotlib.figure import Figure
 

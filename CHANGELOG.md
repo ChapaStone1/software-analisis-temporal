@@ -7,6 +7,28 @@ software. Para la documentación de uso y la arquitectura actual, ver
 
 ---
 
+## Corrección: compatibilidad con Python < 3.10
+
+Al compilar el `.deb` en Linux Mint, la app instalada no abría y tiraba:
+
+```
+TypeError: unsupported operand type(s) for |: 'type' and 'NoneType'
+```
+
+Causa: `chart_canvas.py` y `data/importer.py` usaban la sintaxis
+moderna `Tipo | None` para anotaciones de tipo, que solo se puede
+*evaluar* en tiempo de ejecución a partir de Python 3.10. En una
+máquina con una versión de Python más vieja (frecuente en algunas
+distros de Linux, como Mint), esa línea falla apenas se importa el
+módulo. Arreglado agregando `from __future__ import annotations` al
+principio de esos dos archivos: con eso, todas las anotaciones de tipo
+del archivo quedan guardadas como texto (nunca se evalúan en tiempo de
+ejecución), compatible desde Python 3.7 en adelante. Se revisó todo el
+proyecto y no quedan más usos de esta sintaxis ni de otras
+construcciones exclusivas de Python 3.10+ (`match`/`case`, `:=`).
+Requisito mínimo de Python ajustado de 3.11 a **3.9** (piso real que
+imponen las dependencias, sobre todo pandas 2.x).
+
 ## Novedades de esta ronda (documentación, repo y empaquetado)
 
 - **Documentación completa del software**, en español e inglés

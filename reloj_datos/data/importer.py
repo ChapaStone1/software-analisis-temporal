@@ -5,6 +5,8 @@ Sección 2.1 - Importación de datos.
 Permite cargar archivos .xlsx, .xls y .csv y obtener una vista previa
 antes de procesarlos.
 """
+from __future__ import annotations
+
 from pathlib import Path
 from typing import List
 

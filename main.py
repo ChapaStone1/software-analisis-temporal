@@ -19,7 +19,7 @@ from reloj_datos.settings import cargar_idioma_guardado
 def main() -> None:
     app = QApplication(sys.argv)
     app.setApplicationName(NOMBRE_APP)
-    app.setOrganizationName("EPSD Bahía Blanca - Seccion CePAID")
+    app.setOrganizationName("EPSD Bahía Blanca - CePAID")
     app.setWindowIcon(QIcon(ruta_icono_png()))
 
     # El idioma elegido la última vez queda guardado (ver settings.py)

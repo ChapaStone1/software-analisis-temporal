@@ -7,7 +7,7 @@
 Desarrollado para la Sección Ce.P.A.I.D. — E.P.S.D. Bahía Blanca, Policía de la Provincia de Buenos Aires.
 
 [![Licencia: MIT](https://img.shields.io/badge/Licencia-MIT-green.svg)](LICENSE)
-[![Python](https://img.shields.io/badge/Python-3.11%2B-blue.svg)](https://www.python.org/)
+[![Python](https://img.shields.io/badge/Python-3.9%2B-blue.svg)](https://www.python.org/)
 [![PySide6](https://img.shields.io/badge/GUI-PySide6%20(Qt)-41cd52.svg)](https://doc.qt.io/qtforpython/)
 [![Plataformas](https://img.shields.io/badge/Plataformas-Windows%20%7C%20Linux-lightgrey.svg)](#-instalación)
 
@@ -24,10 +24,11 @@ Desarrollado para la Sección Ce.P.A.I.D. — E.P.S.D. Bahía Blanca, Policía d
 
 ## 📸 Capturas
 
-> _Agregá acá 2 o 3 capturas de pantalla de la app (el Reloj de Datos coloreado, la pantalla de
-> Resultados y algún gráfico) para que se vean apenas alguien entra al repositorio. Basta con
-> arrastrar las imágenes a este archivo desde el editor de GitHub y van a quedar subidas solas a una
-> carpeta `assets` del propio repo._
+<div align="center">
+<img src="screenshots/Reloj.png" width="700" alt="Reloj de Datos">
+
+<img src="screenshots/Software1.png" width="270" alt="Captura 1"> <img src="screenshots/Software2.png" width="270" alt="Captura 2"> <img src="screenshots/Software3.png" width="270" alt="Captura 3">
+</div>
 
 ## ✨ Características
 
@@ -53,7 +54,7 @@ Desarrollado para la Sección Ce.P.A.I.D. — E.P.S.D. Bahía Blanca, Policía d
 
 ## 📋 Requisitos
 
-- Python 3.11 o superior (solo para correr desde el código fuente; los instaladores no lo necesitan).
+- Python 3.9 o superior (solo para correr desde el código fuente; los instaladores no lo necesitan).
 - Windows 10/11 (64 bits) o Linux basado en Debian/Ubuntu (64 bits).
 
 ## 📦 Instalación
